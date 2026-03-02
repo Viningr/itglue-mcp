@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/wyre-technology/itglue-mcp/compare/v1.1.1...v1.1.2) (2026-03-02)
+
+
+### Bug Fixes
+
+* **ci:** fix broken YAML in Discord notification step ([8764888](https://github.com/wyre-technology/itglue-mcp/commit/876488897cf293284a29d7b45f53b82bc4905b2c))
+* **ci:** move Discord notification into release workflow ([679cb92](https://github.com/wyre-technology/itglue-mcp/commit/679cb9275d660bcee6140083678073148dae84ed))
+
 ## [1.1.1](https://github.com/wyre-technology/itglue-mcp/compare/v1.1.0...v1.1.1) (2026-02-23)
 
 
