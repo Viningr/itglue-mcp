@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/wyre-technology/itglue-mcp/compare/v1.2.1...v1.2.2) (2026-03-04)
+
+
+### Bug Fixes
+
+* correct pack-mcpb.cjs content (was corrupted in previous upload) ([889360b](https://github.com/wyre-technology/itglue-mcp/commit/889360b754b00150f4ba0cf33c0b0322d683c19b))
+
 ## [1.2.1](https://github.com/wyre-technology/itglue-mcp/compare/v1.2.0...v1.2.1) (2026-03-04)
 
 
