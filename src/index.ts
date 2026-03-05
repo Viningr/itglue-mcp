@@ -475,16 +475,12 @@ function createMcpServer(): Server {
         inputSchema: {
           type: "object",
           properties: {
-            organization_id: {
-              type: "number",
-              description: "Organization ID that owns the document",
-            },
             id: {
               type: "string",
               description: "The document ID",
             },
           },
-          required: ["organization_id", "id"],
+          required: ["id"],
         },
       },
       {
@@ -736,11 +732,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         }
 
         const params: Record<string, unknown> = {};
-        const filter: Record<string, unknown> = {};
+        const filter: Record<string, unknown> = {
+          organizationId: args.organization_id,
+        };
 
         if (args?.name) filter.name = args.name;
 
-        if (Object.keys(filter).length > 0) params.filter = filter;
+        params.filter = filter;
         if (args?.sort) params.sort = args.sort;
         params.page = {
           size: (args?.page_size as number) || 50,
@@ -748,7 +746,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
 
         const result = await client.request(
-          `/organizations/${args.organization_id}/relationships/documents`,
+          `/documents`,
           params
         );
         return {
@@ -762,15 +760,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
       }
 
       case "get_document": {
-        if (!args?.organization_id || !args?.id) {
+        if (!args?.id) {
           return {
-            content: [{ type: "text", text: "Error: organization_id and id are required" }],
+            content: [{ type: "text", text: "Error: id is required" }],
             isError: true,
           };
         }
-        const doc = await client.get(
-          `/organizations/${args.organization_id}/relationships/documents/${args.id}`
-        );
+        const doc = await client.get(`/documents/${args.id}`);
         return {
           content: [{ type: "text", text: JSON.stringify(doc, null, 2) }],
         };
@@ -784,11 +780,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
           };
         }
         const newDoc = await client.post(
-          `/organizations/${args.organization_id}/relationships/documents`,
+          `/documents`,
           {
             data: {
               type: "documents",
               attributes: {
+                "organization-id": args.organization_id,
                 name: args.name,
                 ...(args.content ? { content: args.content } : {}),
               },
