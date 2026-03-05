@@ -1,3 +1,10 @@
+## [1.2.7](https://github.com/wyre-technology/itglue-mcp/compare/v1.2.6...v1.2.7) (2026-03-05)
+
+
+### Bug Fixes
+
+* **documents:** use top-level /documents endpoint instead of /relationships path ([09b1671](https://github.com/wyre-technology/itglue-mcp/commit/09b1671297c1d1c7ebcc20b0879a2d99209c9768))
+
 ## [1.2.6](https://github.com/wyre-technology/itglue-mcp/compare/v1.2.5...v1.2.6) (2026-03-04)
 
 
