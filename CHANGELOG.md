@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/wyre-technology/itglue-mcp/compare/v1.3.0...v1.4.0) (2026-03-09)
+
+
+### Features
+
+* **tools:** add Document Sections API tools ([#1](https://github.com/wyre-technology/itglue-mcp/issues/1)) ([61c6bcf](https://github.com/wyre-technology/itglue-mcp/commit/61c6bcf14a114724b32e76185ea197f645428b3f)), closes [wyre-technology/msp-claude-plugins#34](https://github.com/wyre-technology/msp-claude-plugins/issues/34)
+
 # [1.3.0](https://github.com/wyre-technology/itglue-mcp/compare/v1.2.8...v1.3.0) (2026-03-05)
 
 
