@@ -514,6 +514,10 @@ function createMcpServer(): Server {
               type: "string",
               description: "Sort field (prefix with - for descending)",
             },
+            document_folder_id: {
+              type: "number",
+              description: "Filter by document folder ID to search within a specific folder",
+            },
           },
           required: ["organization_id"],
         },
@@ -971,6 +975,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         const filter: Record<string, unknown> = {};
 
         if (args?.name) filter.name = args.name;
+        if (args?.document_folder_id) filter.documentFolderId = args.document_folder_id;
 
         if (Object.keys(filter).length > 0) params.filter = filter;
         if (args?.sort) params.sort = args.sort;
